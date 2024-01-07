@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/rasp">
+
+    <fragment
+        android:id="@+id/rasp"
+        android:name="com.example.tvor_project.Rasp"
+        android:label="fragment_rasp"
+        tools:layout="@layout/fragment_rasp" />
+    <fragment
+        android:id="@+id/finder"
+        android:name="com.example.tvor_project.Finder"
+        android:label="fragment_finder"
+        tools:layout="@layout/fragment_finder" >
+        <action
+            android:id="@+id/action_finder_to_rasp"
+            app:destination="@id/rasp" />
+        <action
+            android:id="@+id/action_finder_to_favorite"
+            app:destination="@id/favorite" />
+    </fragment>
+    <fragment
+        android:id="@+id/favorite"
+        android:name="com.example.tvor_project.Favorite"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+</navigation>
