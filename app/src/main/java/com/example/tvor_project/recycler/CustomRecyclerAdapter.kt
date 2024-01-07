@@ -1,5 +1,6 @@
 package com.example.tvor_project.recycler
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,8 +10,12 @@ import com.example.tvor_project.R
 import com.example.tvor_project.data_classes.Choice
 import com.example.tvor_project.data_classes.Choices
 
-class CustomRecyclerAdapter(private val names: Choices) : RecyclerView
+class CustomRecyclerAdapter(
+    val listener: Listener
+) : RecyclerView
 .Adapter<CustomRecyclerAdapter.MyViewHolder>() {
+
+    private var names = ArrayList<Choice>()
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val largeTextView: TextView = itemView.findViewById(R.id.search_res)
@@ -23,8 +28,29 @@ class CustomRecyclerAdapter(private val names: Choices) : RecyclerView
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.largeTextView.text = names.choices.get(position).name
+        holder.largeTextView.text = names[position].name
+        holder.largeTextView.setOnClickListener {
+            listener.onClick(names[position])
+        }
     }
 
-    override fun getItemCount() = names.choices.size
+    @SuppressLint("NotifyDataSetChanged")
+    fun createAll(choices: Choices){
+        deleter()
+        choices.choices.forEach {
+            this.names.add(it)
+        }
+        notifyDataSetChanged()
+    }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun deleter(){
+        names.removeAll(names.toSet())
+    }
+
+
+    override fun getItemCount() = names.size
+    interface Listener{
+        fun onClick(choice: Choice)
+    }
 }

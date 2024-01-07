@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tvor_project.data_classes.Choice
+import com.example.tvor_project.data_classes.Choices
 import com.example.tvor_project.databinding.FragmentFinderBinding
 import com.example.tvor_project.di.ApiModule
 import com.example.tvor_project.recycler.CustomRecyclerAdapter
@@ -16,8 +18,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-class Finder : Fragment() {
+class Finder : Fragment(), CustomRecyclerAdapter.Listener {
     private lateinit var binding: FragmentFinderBinding
+    private var adapter: CustomRecyclerAdapter = CustomRecyclerAdapter(this)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,6 +30,8 @@ class Finder : Fragment() {
         val editText = binding.searchBar
         val recyclerView = binding.searchList
         val textView = binding.textGroup
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.adapter = adapter
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val query = editText.text.toString()
@@ -39,8 +44,7 @@ class Finder : Fragment() {
                         try {
                             val res_search = api.getSearchResult(query)
                             if (res_search.choices.size != 1) {
-                                recyclerView.layoutManager = LinearLayoutManager(requireContext())
-                                recyclerView.adapter = CustomRecyclerAdapter(res_search)
+                                adapter.createAll(res_search)
                             }
                         } catch (e: Exception) {
                             println(e.message);
@@ -63,6 +67,9 @@ class Finder : Fragment() {
         return binding.root
     }
 
+    override fun onClick(choice: Choice) {
+        Toast.makeText(requireContext(), choice.name, Toast.LENGTH_SHORT).show()
+    }
     private fun setupBinding(inflater: LayoutInflater, container: ViewGroup?) {
         binding = FragmentFinderBinding.inflate(inflater,container,false)
     }
