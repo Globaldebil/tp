@@ -26,22 +26,30 @@ class Finder : Fragment() {
         setupBinding(inflater, container)
         val editText = binding.searchBar
         val recyclerView = binding.searchList
+        val textView = binding.textGroup
         editText.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 val query = editText.text.toString()
-                val query_check = query.contains("Ктбо", ignoreCase = true)&&(query.length>=7)
-                if(!query_check)
-                GlobalScope.launch(Dispatchers.Main) {
-                    val api = ApiModule.provideApi()
-                    try {
-                        val res_search = api.getSearchResult(query)
-                        if(res_search.choices.size!=1) {
-                            recyclerView.layoutManager = LinearLayoutManager(requireContext())
-                            recyclerView.adapter = CustomRecyclerAdapter(res_search)
+                val query_check = query.contains("Ктбо", ignoreCase = true) && (query.length >= 7)
+                if (!query_check) {
+                    textView.visibility = View.GONE
+                    recyclerView.visibility = View.VISIBLE
+                    GlobalScope.launch(Dispatchers.Main) {
+                        val api = ApiModule.provideApi()
+                        try {
+                            val res_search = api.getSearchResult(query)
+                            if (res_search.choices.size != 1) {
+                                recyclerView.layoutManager = LinearLayoutManager(requireContext())
+                                recyclerView.adapter = CustomRecyclerAdapter(res_search)
+                            }
+                        } catch (e: Exception) {
+                            println(e.message);
                         }
-                    } catch (e: Exception) {
-                        println(e.message);
                     }
+                } else {
+                    textView.text = query
+                    textView.visibility = View.VISIBLE
+                    recyclerView.visibility = View.INVISIBLE
                 }
             }
 

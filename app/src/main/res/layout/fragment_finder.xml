@@ -15,27 +15,47 @@
             android:id="@+id/search_bar"
             android:layout_width="386dp"
             android:layout_height="59dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="1dp"
             android:ems="10"
-            android:inputType="text"
             android:hint="Группа, преподаватель или кабинет"
+            android:inputType="text"
             android:paddingLeft="15dp"
+            app:layout_constraintBottom_toTopOf="@+id/search_list"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintHorizontal_bias="0.64"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/text_group"
+            android:layout_width="match_parent"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/item_srs"
+            android:layout_height="55dp"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="textView"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_bar" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/search_list"
-            android:layout_width="409dp"
-            android:layout_height="646dp"
+            android:layout_width="match_parent"
+            android:layout_height="647dp"
             android:layout_marginStart="1dp"
             android:layout_marginEnd="1dp"
-            android:layout_marginBottom="1dp"
-            android:paddingLeft="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_group"
+            app:layout_constraintVertical_bias="0.0" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
