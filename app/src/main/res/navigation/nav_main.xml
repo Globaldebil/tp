@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/rasp"
-        android:name="com.example.tvor_project.Rasp"
+        android:name="com.example.tvor_project.ui.Rasp"
         android:label="fragment_rasp"
         tools:layout="@layout/fragment_rasp" />
     <fragment
         android:id="@+id/finder"
-        android:name="com.example.tvor_project.Finder"
+        android:name="com.example.tvor_project.ui.Finder"
         android:label="fragment_finder"
         tools:layout="@layout/fragment_finder" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/favorite"
-        android:name="com.example.tvor_project.Favorite"
+        android:name="com.example.tvor_project.ui.Favorite"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
 </navigation>

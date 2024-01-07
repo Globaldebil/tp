@@ -51,14 +51,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.1.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.1.0")
 
-    // Feature module Support
-    implementation("androidx.navigation:navigation-dynamic-features-fragment:2.1.0")
-
-    // Testing Navigation
-    androidTestImplementation("androidx.navigation:navigation-testing:2.1.0")
-
-    // Jetpack Compose Integration
-    implementation("androidx.navigation:navigation-compose:2.1.0")
     
     // Moshi
     implementation ("com.squareup.moshi:moshi:1.8.0")
