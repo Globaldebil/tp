@@ -43,6 +43,7 @@ class Finder : Fragment(), CustomRecyclerAdapter.Listener {
                         val api = ApiModule.provideApi()
                         try {
                             val res_search = api.getSearchResult(query)
+
                             if (res_search.choices.size != 1) {
                                 adapter.createAll(res_search)
                             }
