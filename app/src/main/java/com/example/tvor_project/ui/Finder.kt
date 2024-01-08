@@ -64,10 +64,8 @@ class Finder : Fragment(), CustomRecyclerAdapter.Listener {
                                 val res_search = api.getSearchGroup(query)
                                 val bundle = Bundle()
                                 bundle.putString("group",res_search.table.group)
-                                val fragment = Rasp()
-                                fragment.arguments = bundle
 
-                                MAIN.navController.navigate(R.id.action_finder_to_rasp)
+                                MAIN.navController.navigate(R.id.action_finder_to_rasp,bundle)
                             } catch (e: Exception) {
                                 println(e.message);
                             }
