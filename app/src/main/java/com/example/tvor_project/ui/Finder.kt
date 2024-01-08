@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tvor_project.R
 import com.example.tvor_project.data_classes.Choice
 import com.example.tvor_project.databinding.FragmentFinderBinding
 import com.example.tvor_project.di.ApiModule
@@ -43,7 +44,6 @@ class Finder : Fragment(), CustomRecyclerAdapter.Listener {
                         val api = ApiModule.provideApi()
                         try {
                             val res_search = api.getSearchResult(query)
-
                             if (res_search.choices.size != 1) {
                                 adapter.createAll(res_search)
                             }
@@ -53,6 +53,25 @@ class Finder : Fragment(), CustomRecyclerAdapter.Listener {
                     }
                 } else {
                     textView.text = query
+                    textView.setOnClickListener {
+                        GlobalScope.launch(Dispatchers.Main) {
+                            val api = ApiModule.provideApi()
+                            try {
+                                val res_search = api.getSearchGroup(query)
+                                val bundle = Bundle()
+                                bundle.putString("group",res_search.table.group)
+                                val fragment = Rasp()
+                                fragment.arguments = bundle
+
+                                val transaction = parentFragmentManager.beginTransaction()
+                                transaction.replace(R.id.frame_layout, Rasp())
+                                transaction.addToBackStack(null)
+                                transaction.commit()
+                            } catch (e: Exception) {
+                                println(e.message);
+                            }
+                        }
+                    }
                     textView.visibility = View.VISIBLE
                     recyclerView.visibility = View.INVISIBLE
                 }
@@ -74,7 +93,10 @@ class Finder : Fragment(), CustomRecyclerAdapter.Listener {
         bundle.putString("group",choice.group)
         val fragment = Rasp()
         fragment.arguments = bundle
-
+        val transaction = parentFragmentManager.beginTransaction()
+        transaction.replace(R.id.frame_layout, Rasp())
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
     private fun setupBinding(inflater: LayoutInflater, container: ViewGroup?) {
         binding = FragmentFinderBinding.inflate(inflater,container,false)
