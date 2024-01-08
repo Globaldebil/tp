@@ -9,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.tvor_project.MAIN
 import com.example.tvor_project.R
 import com.example.tvor_project.data_classes.Choice
 import com.example.tvor_project.databinding.FragmentFinderBinding
@@ -63,10 +64,7 @@ class Finder : Fragment(), CustomRecyclerAdapter.Listener {
                                 val fragment = Rasp()
                                 fragment.arguments = bundle
 
-                                val transaction = parentFragmentManager.beginTransaction()
-                                transaction.replace(R.id.frame_layout, Rasp())
-                                transaction.addToBackStack(null)
-                                transaction.commit()
+                                MAIN.navController.navigate(R.id.action_finder_to_rasp)
                             } catch (e: Exception) {
                                 println(e.message);
                             }
@@ -93,10 +91,7 @@ class Finder : Fragment(), CustomRecyclerAdapter.Listener {
         bundle.putString("group",choice.group)
         val fragment = Rasp()
         fragment.arguments = bundle
-        val transaction = parentFragmentManager.beginTransaction()
-        transaction.replace(R.id.frame_layout, Rasp())
-        transaction.addToBackStack(null)
-        transaction.commit()
+        MAIN.navController.navigate(R.id.action_finder_to_rasp)
     }
     private fun setupBinding(inflater: LayoutInflater, container: ViewGroup?) {
         binding = FragmentFinderBinding.inflate(inflater,container,false)

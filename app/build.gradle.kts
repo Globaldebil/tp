@@ -48,8 +48,8 @@ dependencies {
     implementation ("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
 
     // Kotlin
-    implementation("androidx.navigation:navigation-fragment-ktx:2.1.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.1.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.6")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.6")
 
     implementation ("io.github.optimumcode:json-schema-validator:0.0.5")
 
