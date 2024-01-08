@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import com.example.tvor_project.MAIN
 import com.example.tvor_project.R
@@ -20,14 +21,18 @@ class Rasp : Fragment() {
     private lateinit var binding: FragmentRaspBinding
     private var week = 1
     private lateinit var group : String
+    private lateinit var button: Button
     private lateinit var textView : TextView
+    private lateinit var textViewg : TextView
     val api = ApiModule.provideApi()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentRaspBinding.inflate(inflater,container,false)
-
+        button.setOnClickListener {
+            MAIN.navController.navigate(R.id.action_rsp_to_srch)
+        }
         return binding.root
     }
 
@@ -35,7 +40,7 @@ class Rasp : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         textView = binding.textWeek
-        val textViewg = binding.grName
+        textViewg = binding.grName
         val buttonNext = binding.buttonNext
         val bottonPrev = binding.buttonPrev
 
@@ -58,6 +63,7 @@ class Rasp : Fragment() {
         GlobalScope.launch(Dispatchers.Main) {
             try {
                 val res_search = api.getRaspisanie(group, week)
+                textViewg.text = res_search.table.name
                 textView.setText("Неделя "+ res_search.table.week.toString())
             } catch (e: Exception) {
                 println(e.message)

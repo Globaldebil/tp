@@ -18,6 +18,10 @@
         android:id="@+id/rsp"
         android:name="com.example.tvor_project.ui.Rasp"
         android:label="fragment_rasp"
-        tools:layout="@layout/fragment_rasp" />
+        tools:layout="@layout/fragment_rasp" >
+        <action
+            android:id="@+id/action_rsp_to_srch"
+            app:destination="@id/srch" />
+    </fragment>
     />
 </navigation>
