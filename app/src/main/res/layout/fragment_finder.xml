@@ -18,7 +18,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="1dp"
             android:ems="10"
-            android:hint="Группа, преподаватель или кабинет"
+            android:hint="Введите вашу группу"
             android:inputType="text"
             android:paddingLeft="15dp"
             app:layout_constraintBottom_toTopOf="@+id/search_list"

@@ -51,7 +51,8 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.1.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.1.0")
 
-    
+    implementation ("io.github.optimumcode:json-schema-validator:0.0.5")
+
     // Moshi
     implementation ("com.squareup.moshi:moshi:1.8.0")
     implementation("com.google.android.datatransport:transport-runtime:3.2.0")

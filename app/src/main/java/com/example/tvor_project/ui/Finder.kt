@@ -10,13 +10,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tvor_project.data_classes.Choice
-import com.example.tvor_project.data_classes.Choices
 import com.example.tvor_project.databinding.FragmentFinderBinding
 import com.example.tvor_project.di.ApiModule
 import com.example.tvor_project.recycler.CustomRecyclerAdapter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+
 
 class Finder : Fragment(), CustomRecyclerAdapter.Listener {
     private lateinit var binding: FragmentFinderBinding
@@ -69,6 +69,11 @@ class Finder : Fragment(), CustomRecyclerAdapter.Listener {
 
     override fun onClick(choice: Choice) {
         Toast.makeText(requireContext(), choice.name, Toast.LENGTH_SHORT).show()
+        val bundle = Bundle()
+        bundle.putString("group",choice.group)
+        val fragment = Rasp()
+        fragment.arguments = bundle
+
     }
     private fun setupBinding(inflater: LayoutInflater, container: ViewGroup?) {
         binding = FragmentFinderBinding.inflate(inflater,container,false)

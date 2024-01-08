@@ -28,7 +28,7 @@ class CustomRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.largeTextView.text = names[position].name
+        if(names[position].name.contains("Кт", ignoreCase = true)) holder.largeTextView.text = names[position].name
         holder.largeTextView.setOnClickListener {
             listener.onClick(names[position])
         }
@@ -38,7 +38,8 @@ class CustomRecyclerAdapter(
     fun createAll(choices: Choices){
         deleter()
         choices.choices.forEach {
-            this.names.add(it)
+            if(it.name.contains("Кт",ignoreCase = true))
+                this.names.add(it)
         }
         notifyDataSetChanged()
     }
