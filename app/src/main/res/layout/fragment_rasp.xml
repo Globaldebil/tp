@@ -53,9 +53,9 @@
 
         <TextView
             android:id="@+id/gr_name"
-            android:layout_width="171dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="24dp"
+            android:layout_width="99dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Группа"
             android:textSize="25dp"
@@ -64,15 +64,26 @@
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="179dp"
-            android:layout_height="49dp"
+            android:layout_width="168dp"
+            android:layout_height="42dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="24dp"
             android:text="Неделя"
             android:textSize="25dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintHorizontal_bias="0.114"
             app:layout_constraintStart_toEndOf="@+id/gr_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/button_back"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/baseline_arrow_back_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.675"
+            app:layout_constraintStart_toEndOf="@+id/textView4"
             app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
