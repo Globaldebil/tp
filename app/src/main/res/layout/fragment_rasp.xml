@@ -92,7 +92,7 @@
             app:layout_constraintStart_toStartOf="parent">
 
             <Button
-                android:id="@+id/button27"
+                android:id="@+id/monday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -100,35 +100,35 @@
                 android:textSize="13dp" />
 
             <Button
-                android:id="@+id/button26"
+                android:id="@+id/tuesday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="ВТ" />
 
             <Button
-                android:id="@+id/button25"
+                android:id="@+id/wensday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="СР" />
 
             <Button
-                android:id="@+id/button24"
+                android:id="@+id/thusday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="ЧТ" />
 
             <Button
-                android:id="@+id/button23"
+                android:id="@+id/friday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="ПТ" />
 
             <Button
-                android:id="@+id/button22"
+                android:id="@+id/saturday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -141,20 +141,11 @@
             android:layout_height="34dp"
             android:layout_marginTop="12dp"
             android:gravity="center"
-            android:text="TextView"
+            android:text="Дата"
+
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_week" />
-
-        <TextView
-            android:id="@+id/data"
-            android:layout_width="173dp"
-            android:layout_height="18dp"
-            android:gravity="center"
-            android:text="TextView"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/week_name" />
 
         <ScrollView
             android:layout_width="409dp"
@@ -169,7 +160,8 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/textView29"
@@ -194,7 +186,7 @@
                     android:id="@+id/second"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text=""
                     android:textSize="25dp"/>
 
                 <TextView
@@ -207,7 +199,7 @@
                     android:id="@+id/third"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text=""
                     android:textSize="25dp"/>
 
                 <TextView
@@ -220,7 +212,7 @@
                     android:id="@+id/four"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text=""
                     android:textSize="25dp"/>
 
                 <TextView
@@ -233,7 +225,7 @@
                     android:id="@+id/five"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text=""
                     android:textSize="25dp"/>
 
                 <TextView
@@ -246,7 +238,7 @@
                     android:id="@+id/six"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text=""
                     android:textSize="25dp"/>
 
                 <TextView
@@ -259,7 +251,7 @@
                     android:id="@+id/seven"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="TextView"
+                    android:text=""
                     android:textSize="25dp"/>
             </LinearLayout>
         </ScrollView>
